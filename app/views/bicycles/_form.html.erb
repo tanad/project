@@ -1,20 +1,16 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
+<%= form_for(@bicycle) do |f| %>
+  <% if @bicycle.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <h2><%= pluralize(@bicycle.errors.count, "error") %> prohibited this bicycle from being saved:</h2>
 
       <ul>
-      <% @product.errors.full_messages.each do |message| %>
+      <% @bicycle.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :bicycle %><br>
-    <%= f.text_field :bicycle %>
-  </div>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -24,8 +20,8 @@
     <%= f.text_field :string %>
   </div>
   <div class="field">
-    <%= f.label :decsription %><br>
-    <%= f.text_area :decsription %>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
   </div>
   <div class="field">
     <%= f.label :image_url %><br>
@@ -40,8 +36,8 @@
     <%= f.text_field :category %>
   </div>
   <div class="field">
-    <%= f.label :availability %><br>
-    <%= f.text_field :availability %>
+    <%= f.label :available %><br>
+    <%= f.check_box :available %>
   </div>
   <div class="actions">
     <%= f.submit %>

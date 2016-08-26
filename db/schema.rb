@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826163654) do
+ActiveRecord::Schema.define(version: 20160826175227) do
+
+  create_table "bicycles", force: :cascade do |t|
+    t.string   "title"
+    t.string   "string"
+    t.text     "description"
+    t.string   "image_url"
+    t.integer  "price"
+    t.string   "category"
+    t.boolean  "available"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "bikeusers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,19 +42,6 @@ ActiveRecord::Schema.define(version: 20160826163654) do
 
   add_index "bikeusers", ["email"], name: "index_bikeusers_on_email", unique: true
   add_index "bikeusers", ["reset_password_token"], name: "index_bikeusers_on_reset_password_token", unique: true
-
-  create_table "products", force: :cascade do |t|
-    t.string   "bicycle"
-    t.string   "title"
-    t.string   "string"
-    t.text     "decsription"
-    t.string   "image_url"
-    t.integer  "price"
-    t.string   "category"
-    t.string   "availability"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

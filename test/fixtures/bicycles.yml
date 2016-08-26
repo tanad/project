@@ -1,21 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  bicycle: MyString
   title: MyString
   string: MyString
-  decsription: MyText
+  description: MyText
   image_url: MyString
   price: 1
   category: MyString
-  availability: MyString
+  available: false
 
 two:
-  bicycle: MyString
   title: MyString
   string: MyString
-  decsription: MyText
+  description: MyText
   image_url: MyString
   price: 1
   category: MyString
-  availability: MyString
+  available: false

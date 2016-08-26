@@ -1,14 +1,13 @@
-class CreateProducts < ActiveRecord::Migration
+class CreateBicycles < ActiveRecord::Migration
   def change
-    create_table :products do |t|
-      t.string :bicycle
+    create_table :bicycles do |t|
       t.string :title
       t.string :string
-      t.text :decsription
+      t.text :description
       t.string :image_url
       t.integer :price
       t.string :category
-      t.string :availability
+      t.boolean :available
 
       t.timestamps null: false
     end
