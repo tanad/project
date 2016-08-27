@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827200844) do
+ActiveRecord::Schema.define(version: 20160827203210) do
 
   create_table "bicycles", force: :cascade do |t|
     t.string   "title"
@@ -42,6 +42,19 @@ ActiveRecord::Schema.define(version: 20160827200844) do
 
   add_index "bikeusers", ["email"], name: "index_bikeusers_on_email", unique: true
   add_index "bikeusers", ["reset_password_token"], name: "index_bikeusers_on_reset_password_token", unique: true
+
+  create_table "bookings", force: :cascade do |t|
+    t.date     "start"
+    t.date     "end"
+    t.integer  "final_price"
+    t.integer  "user_id"
+    t.integer  "bicycle_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "bookings", ["bicycle_id"], name: "index_bookings_on_bicycle_id"
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
