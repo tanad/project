@@ -1,5 +1,6 @@
 class BicyclesController < ApplicationController
   before_action :set_bicycle, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!,only: [:edit, :create, :update, :new]
 
   # GET /bicycles
   # GET /bicycles.json

@@ -1,39 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Bicycles</h1>
+<div class="page-header">
+  <h1>Listing Bicycles</h1>
+</div>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">This is a Panel Heading</div>
+  <div class="panel-body">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>String</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th>Available</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table class="table">
+
 
   <tbody>
     <% @bicycles.each do |bicycle| %>
       <tr>
         <td><%= bicycle.title %></td>
-        <td><%= bicycle.string %></td>
+       
         <td><%= bicycle.description %></td>
-        <td><%= bicycle.image_url %></td>
         <td><%= bicycle.price %></td>
         <td><%= bicycle.category %></td>
         <td><%= bicycle.available %></td>
-        <td><%= link_to 'Show', bicycle %></td>
-        <td><%= link_to 'Edit', edit_bicycle_path(bicycle) %></td>
-        <td><%= link_to 'Destroy', bicycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', bicycle, class: 'btn btn-primary btn-xs' %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_bicycle_path(bicycle), class: 'btn btn-primary btn-xs' %></td>
+          <td><%= link_to 'Destroy', bicycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <% else %>
+          <td colspan="2"></td>
+         <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
-<br>
-
+<div class="panel-footer">
 <%= link_to 'New Bicycle', new_bicycle_path, class: "btn btn-primary" %>
+</div>
+</div>

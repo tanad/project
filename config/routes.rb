@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   
   resources :bicycles
   
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  
 
-  devise_for :users
+  
   root 'page#home'
   
   get 'page/home'
