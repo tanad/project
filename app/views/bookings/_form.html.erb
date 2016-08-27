@@ -1,0 +1,52 @@
+<%= form_for(@booking) do |f| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% @booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!--This value is  hidden so users dont modify them-->
+<%= hidden_field(:booking, :bicycle_id, :value => @booking.bicycle_id) %>
+
+<!--Add info about the bicycle about to be booked-->
+  <div class="field">
+    <%= f.label :Bicycle_to_book %>
+    <%= @booking.bicycle.title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :days %><br>
+    <%= number_field_tag 'booking[days]' %>
+  </div>
+  
+<!--This input text is readonly, it is  modified when the number of days selected is chaged-->
+  <div class="field">
+    <%= f.label :final_price %><br>
+    <%= f.text_field :final_price , :readonly =>true%>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+// Gets the price per day from the bicycle
+  var bike_price = <%= @booking.bicycle.price %>
+  
+  // When the number of days changes this is triggered
+  $("#booking_days").change(function(){
+    var days = this.value
+    final_price = days * bike_price
+    // It changes the value of the final price to be displayed
+    $("#booking_final_price").val(final_price)
+  });
+  
+</script>

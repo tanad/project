@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   
   
+  get 'bookings/new'
+
   resources :bicycles
   
   devise_for :users, :controllers => { registrations: 'registrations' }
   
-
+ resources :bookings
   
   root 'page#home'
   
