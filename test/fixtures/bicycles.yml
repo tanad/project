@@ -4,7 +4,6 @@ one:
   title: MyString
   string: MyString
   description: MyText
-  image_url: MyString
   price: 1
   category: MyString
   available: false
@@ -13,7 +12,6 @@ two:
   title: MyString
   string: MyString
   description: MyText
-  image_url: MyString
   price: 1
   category: MyString
   available: false

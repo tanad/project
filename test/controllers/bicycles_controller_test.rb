@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class BicyclesControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+  
   setup do
     @bicycle = bicycles(:one)
   end
