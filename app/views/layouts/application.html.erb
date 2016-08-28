@@ -23,7 +23,11 @@
           <li><%= link_to "Bicycles", bicycles_path %></li>
           <li><%= link_to "Contact", page_contact_path %></li>
           <li><%= link_to "Faq", page_faq_path %></li>
-          <% if user_signed_in? %>
+          <% if (user_signed_in? and current_user.admin == true) %>
+            <li><%= link_to "Booking History", bookings_path %></li>
+            <li> <%= link_to "Profile", edit_user_registration_path %></li>
+            <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <% elsif user_signed_in? %>
             <li> <%= link_to "Profile", edit_user_registration_path %></li>
             <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
           <% else %>
