@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<%= form_tag(bicycles_path, :method => "get") do %>
+  <%= text_field_tag :search, nil, :placeholder => "Search Bicycles by Title" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+
 <div class="page-header">
   <h1>Listing Bicycles</h1>
 </div>

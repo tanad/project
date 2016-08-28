@@ -6,6 +6,12 @@ class BicyclesController < ApplicationController
   # GET /bicycles.json
   def index
     @bicycles = Bicycle.all
+    if params[ :search]
+      @bicycles = Bicycle.search(params[:search])
+      @bicycles = @bicycles.order("created_at ASC")
+    else
+      @bicycles = @bicycles.order("created_at DESC")
+    end
   end
 
   # GET /bicycles/1
